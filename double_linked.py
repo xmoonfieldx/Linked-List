@@ -37,10 +37,23 @@ class SinglyLinkedList:
             x.prev=z
         self.head.prev=x
         
+    def dele(self,data):
+        temp=self.head
+        previ=temp
+        if temp.data==data:
+            self.head=temp.next
+        while temp.next!=None:
+            previ=temp
+            temp=temp.next
+            if temp.data==data:
+                previ.next=temp.next
+                temp.next.prev=previ
+        
 if __name__ == "__main__":
     llist = SinglyLinkedList()
     k=['Alpha','Charlie','Bravo','Echo','Foxtrot','Zulu','Delta']
     for i in range(len(k)):
         llist.insert(k[i])
+    llist.dele('Echo')
     llist.print()
     llist.rev()
