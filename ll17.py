@@ -55,12 +55,14 @@ class SinglyLinkedList:
     
     #5 Delete a node
     def delete(self,data):
-        x=self.head
-        if x.data==data:
-            self.head=x.next
-        while x.next.data!=data:
-            x=x.next
-        x.next=x.next.next
+        z=self.head
+        if z.data==data:
+            self.head=z.next
+            return
+        while z.data!=data:
+            prev=z
+            z=z.next
+        prev.next=z.next
 
 #6 Reverse a linked list
 def rev(llist):
